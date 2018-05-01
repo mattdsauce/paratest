@@ -60,12 +60,18 @@ class Smoke_AppliFrontendTest extends PHPUnit_Extensions_Selenium2TestCase
 
         $this->assertTrue($this->isElementDisplayed("html/body/div[1]/div[11]/div/div[1]/a/button"));
 
+        $info = 'SauceOnDemandSessionID=' . $sessionId . ' job-name=' . $this->getName();
+        echo $info;
+
     }
 
     public function test_HomePageTest2(){
         $this->url("https://www.softwareadvice.com/");
 
         $this->assertTrue($this->isElementDisplayed("html/body/div[1]/div[11]/div/div[1]/a/button[contains(., 'Hello')]"));
+
+        $info = 'SauceOnDemandSessionID=' . $sessionId . ' job-name=' . $this->getName();
+        echo $info;
 
     }
 
@@ -82,11 +88,6 @@ class Smoke_AppliFrontendTest extends PHPUnit_Extensions_Selenium2TestCase
         }
     }
 
-    private function printSauceInfo($sessionId){
-        $info = PHP_EOL . 'SauceOnDemandSessionID=' . $sessionId . ' job-name=' . $this->getName() . PHP_EOL;
-        file_put_contents("sauceInfo.txt", $info, FILE_APPEND);
-
-    }
 
 
   }
