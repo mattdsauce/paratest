@@ -85,7 +85,6 @@ class Smoke_AppliFrontendTest extends PHPUnit_Extensions_Selenium2TestCase
     private function printSauceInfo($sessionId){
         $info = PHP_EOL . 'SauceOnDemandSessionID=' . $sessionId . ' job-name=' . $this->getName() . PHP_EOL;
         file_put_contents("sauceInfo.txt", $info, FILE_APPEND);
-        echo $info;
 
     }
 
