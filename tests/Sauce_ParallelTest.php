@@ -59,17 +59,28 @@ class Smoke_AppliFrontendTest extends PHPUnit_Extensions_Selenium2TestCase
 
         $this->assertTrue($this->isElementDisplayed("html/body/div[1]/div[11]/div/div[1]/a/button"));
 
-        $this->printSauceInfo($this->_session->id());
-
     }
 
+    /**
+     * <p> POC for Applitools </p>
+     *
+     * @test
+     *
+     * @group smokeFrontendParallel
+     */
     public function test_HomePageTest2(){
         $this->url("https://www.softwareadvice.com/");
 
         $this->assertTrue($this->isElementDisplayed("html/body/div[1]/div[11]/div/div[1]/a/button[contains(., 'Hello')]"));
 
-        $this->printSauceInfo($this->_session->id());
+    }
 
+    /**
+     * @after
+     */
+    public function tearDown()
+    {
+        $this->printSauceInfo($this->_session->id());
     }
 
 
@@ -86,8 +97,8 @@ class Smoke_AppliFrontendTest extends PHPUnit_Extensions_Selenium2TestCase
     }
 
     private function printSauceInfo($sessionId){
-        $info = PHP_EOL . 'SauceOnDemandSessionID=' . $sessionId . ' job-name=' . $this->getName() . PHP_EOL;
-        file_put_contents("sauceInfo.txt", $info, FILE_APPEND);
+        $info = 'SauceOnDemandSessionID=' . $sessionId . ' job-name=' . $this->getName();
+        print $info;
     }
 
   }
