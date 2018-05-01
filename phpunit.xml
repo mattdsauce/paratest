@@ -1,0 +1,31 @@
+<phpunit bootstrap="bootstrap.php">
+    <testsuites>
+
+       <!--
+        <testsuite name="AllTests">
+            <directory suffix="Test.php">tests</directory>
+        </testsuite>  -->
+
+        <testsuite name="Paratest">
+            <directory suffix="ParallelTest.php">tests</directory>
+        </testsuite>
+    </testsuites>
+    <filter>
+        <whitelist>
+            <directory>./classes</directory>
+        </whitelist>
+    </filter>
+    <logging>
+        <log type="graphviz" target="./tmp/logfile.dot"/>
+        <log type="json" target="./tmp/logfile.json"/>
+        <log type="metrics-xml" target="./tmp/metrics.xml"/>
+        <log type="plain" target="./tmp/logfile.txt"/>
+        <log type="pmd-xml" target="./tmp/pmd.xml" cpdMinLines="5" cpdMinMatches="70"/>
+        <log type="tap" target="./tmp/logfile.tap"/>
+        <log type="junit" target="../build/target/logs/phpunit.xml" logIncompleteSkipped="false" />
+        <log type="test-xml" target="./tmp/logfile.xml" logIncompleteSkipped="false"/>
+        <log type="testdox-html" target="./tmp/testdox.html"/>
+        <log type="testdox-text" target="./tmp/testdox.txt"/>
+    </logging>
+</phpunit>
+

@@ -1,0 +1,29 @@
+{
+  "name": "test",
+  "type": "cli",
+  "description": " Testing",
+  "require": {
+    "php": ">=5.6",
+    "phpunit/phpunit": "~5.0",
+    "sebastian/comparator": "~1.0",
+    "phpunit/phpunit-selenium": ">=3.0",
+    "symfony/yaml": ">3.2.0",
+    "brianium/paratest": "0.15.0",
+    "lib-curl": ">7.0",
+    "friendsofphp/php-cs-fixer": "2.3.2",
+    "jakoch/phantomjs-installer": "2.1.1-p08",
+    "twilio/sdk": "5.9.0",
+    "appium/php-client": "0.3.0",
+    "applitools/eyes.sdk.php": "1.2.3"
+  },
+  "scripts": {
+    "install-phantomjs": [
+      "PhantomInstaller\\Installer::installPhantomJS"
+    ]
+  },
+  "require-dev": {
+    "jakoch/phantomjs-installer": "2.1.1-p08",
+    "phing/phing": ">=2.0"
+  }
+
+}
