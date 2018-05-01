@@ -34,7 +34,6 @@ class Smoke_AppliFrontendTest extends PHPUnit_Extensions_Selenium2TestCase
         $this->setHost('mattdsauce:fc7530ea-9891-4618-aa52-5460e4beb094@ondemand.saucelabs.com');
         $this->setBrowserUrl("https://www.softwareadvice.com/");
         $this->_session = parent::prepareSession();
-        $this->printSauceInfo($this->_session->id());
 
     }
 
@@ -60,8 +59,7 @@ class Smoke_AppliFrontendTest extends PHPUnit_Extensions_Selenium2TestCase
 
         $this->assertTrue($this->isElementDisplayed("html/body/div[1]/div[11]/div/div[1]/a/button"));
 
-        $info = 'SauceOnDemandSessionID=' . $sessionId . ' job-name=' . $this->getName();
-        echo $info;
+        $this->printSauceInfo($this->_session->id());
 
     }
 
@@ -70,8 +68,7 @@ class Smoke_AppliFrontendTest extends PHPUnit_Extensions_Selenium2TestCase
 
         $this->assertTrue($this->isElementDisplayed("html/body/div[1]/div[11]/div/div[1]/a/button[contains(., 'Hello')]"));
 
-        $info = 'SauceOnDemandSessionID=' . $sessionId . ' job-name=' . $this->getName();
-        echo $info;
+        $this->printSauceInfo($this->_session->id());
 
     }
 
@@ -88,6 +85,9 @@ class Smoke_AppliFrontendTest extends PHPUnit_Extensions_Selenium2TestCase
         }
     }
 
-
+    private function printSauceInfo($sessionId){
+        $info = PHP_EOL . 'SauceOnDemandSessionID=' . $sessionId . ' job-name=' . $this->getName() . PHP_EOL;
+        file_put_contents("sauceInfo.txt", $info, FILE_APPEND);
+    }
 
   }
