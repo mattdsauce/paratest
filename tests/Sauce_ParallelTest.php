@@ -32,7 +32,7 @@ class Smoke_AppliFrontendTest extends PHPUnit_Extensions_Selenium2TestCase
 
 
         $this->setBrowser('chrome');
-        $this->setHost(getenv("SAUCE_USERNAME") . ':' . getenv("SAUCE_ACCESS_KEY") . '@ondemand.saucelabs.com');
+        $this->setHost('mattdsauce:fc7530ea-9891-4618-aa52-5460e4beb094@ondemand.saucelabs.com');
         $this->setBrowserUrl("https://www.softwareadvice.com/");
         $this->_session = parent::prepareSession();
 
